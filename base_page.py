@@ -1,11 +1,7 @@
-from selenium.webdriver.chrome.service import Service
-from selenium import webdriver
-
-driver = webdriver.Chrome(service=Service("C:\\automation course\\chromedriver.exe"))
 
 class BasePage():
 
-    def __init__(self):
+    def __init__(self, driver):
         self.driver = driver
 
     def click_element(self, locator_type, locator_value):
@@ -13,3 +9,10 @@ class BasePage():
 
     def send_text(self, locator_type, locator_value):
         self.driver.find_element(locator_type, locator_value).send_keys()
+
+    def find_element(self, locator_type, locator_value):
+        self.driver.find_element(locator_type, locator_value)
+
+    def find_elements(self, locator_type, locator_value):
+        self.driver.find_elements(locator_type, locator_value)
+
