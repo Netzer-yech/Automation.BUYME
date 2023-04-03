@@ -1,3 +1,4 @@
+from selenium.webdriver.support.relative_locator import locate_with
 
 class BasePage():
 
@@ -16,3 +17,5 @@ class BasePage():
     def find_elements(self, locator_type, locator_value):
         self.driver.find_elements(locator_type, locator_value)
 
+    def click_element_locate_with_below(self, locator_type, locator_value, element_located):
+        self.driver.find_element(locate_with(locator_type, locator_value).below(element_located))
