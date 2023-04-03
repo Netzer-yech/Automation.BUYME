@@ -15,8 +15,7 @@ class TestBuyMeWebsite(TestCase):
         self.registration = Registration(self.driver)
 
     def test_1_registration(self):
-        self.registration.click_login()
-        self.registration.click_registration()
+        self.registration.test_registration()
 
     def tearDown(self) -> None:
         self.driver.quit()
