@@ -4,16 +4,19 @@ from selenium.webdriver.support.relative_locator import locate_with
 from selenium.webdriver.common.by import By
 from base_page import BasePage
 
+class Constants():
+    LOG_IN_BUTTON = By.XPATH, "//span[@tuafontsizes='14']"
+    ENTER_BUTTON = By.CSS_SELECTOR, 'h1[class=bm-h1]'
+    REGISTER_BUTTON_TYPE = By.TAG_NAME
+    REGISTER_BUTTON_VALUE = 'span'
 class Registration(BasePage):
 
     def __init__(self, driver):
         BasePage.__init__(self, driver)
 
     def test_registration(self):
-        self.click_element(By.XPATH, "//span[@tuafontsizes='14']")
-        enter_button = self.find_element(By.CSS_SELECTOR, 'h1[class=bm-h1]')
-        self.driver.find_element(locate_with(By.TAG_NAME, 'span').below(enter_button)).click()
-        time.sleep(5)
+        self.click_element(Constants.LOG_IN_BUTTON)
+        self.click_element_below(Constants.REGISTER_BUTTON_TYPE, Constants.REGISTER_BUTTON_VALUE, Constants.ENTER_BUTTON)
 
 
 
