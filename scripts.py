@@ -23,11 +23,11 @@ def test_1():
     driver.find_element(By.XPATH, value="//input[@placeholder='סיסמה']").send_keys('Bmrhjzetk91')
     driver.find_element(By.XPATH, value="//input[@placeholder='אימות סיסמה']").send_keys('Bmrhjzetk91')
     driver.find_element(By.XPATH, value="//span[@class='circle']").click()
-    # first_name_text_area = driver.find_element(By.XPATH, value="//input[@placeholder='שם פרטי']")
-    # action.move_to_element(first_name_text_area).perform()
-    # first_name = 'netzer'
-    # print(first_name_text_area.text)
-    # assert first_name == first_name_text_area.text
+    first_name_text_area = driver.find_element(By.XPATH, value="//input[@placeholder='שם פרטי']")
+    action.move_to_element(first_name_text_area).perform()
+    first_name = 'netzer'
+    print(first_name_text_area.text)
+    assert first_name == first_name_text_area.text
     driver.find_element(By.XPATH, value="//button[@type='submit']").click()
 
 test_1()

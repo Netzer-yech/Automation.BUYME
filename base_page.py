@@ -11,7 +11,7 @@ class BasePage():
     def send_text(self, locator_type, locator_value, text):
         self.driver.find_element(locator_type, value=locator_value).send_keys(text)
 
-    def find_element_return_web_elm(self, locator_type, locator_value):
+    def find_and_return_web_elm(self, locator_type, locator_value):
         return self.driver.find_element(locator_type, value=locator_value)
 
     def find_elements(self, locator_type, locator_value):
@@ -19,7 +19,7 @@ class BasePage():
 
     def click_element_below(self, locator_type, locator_value, relative_type, relative_value):
         self.driver.find_element(locate_with(
-            locator_type, locator_value).below(self.find_element_return_web_elm(relative_type, relative_value))).click()
+            locator_type, locator_value).below(self.find_and_return_web_elm(relative_type, relative_value))).click()
 
 
 

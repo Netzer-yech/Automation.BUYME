@@ -20,9 +20,14 @@ class Registration(BasePage):
         self.click_element(Constants.LOG_IN_BUTTON_TYPE, Constants.LOG_IN_BUTTON_VALUE)
         self.click_element_below(Constants.REGISTER_BUTTON_TYPE, Constants.REGISTER_BUTTON_VALUE,
                                  Constants.ENTER_BUTTON_TYPE, Constants.ENTER_BUTTON_VALUE)
-
-
-
+        self.send_text(By.XPATH, "//input[@placeholder='שם פרטי']", 'netzer')
+        first_name = 'netzer'
+        assert first_name == self.find_and_return_web_elm(By.XPATH, "//input[@placeholder='שם פרטי']").text
+        self.send_text(By.XPATH, "//input[@placeholder='מייל']", 'netzer.yech@gmail.com')
+        self.send_text(By.XPATH, "//input[@placeholder='סיסמה']", 'Bmrhjzetk91')
+        self.send_text(By.XPATH, "//input[@placeholder='אימות סיסמה']", 'Bmrhjzetk91')
+        self.click_element(By.XPATH, "//span[@class='circle']")
+        self.click_element(By.XPATH, "//button[@type='submit']")
 
 
 
