@@ -22,7 +22,10 @@ class TestBuyMeWebsite(TestCase):
         self.registration = Registration(self.driver)
 
     def test_1_registration(self):
-        self.registration.test_registration()
+
+        first_name = 'netzer'
+        assert self.registration.test_registration() == first_name
+
 
     def tearDown(self) -> None:
         self.driver.quit()

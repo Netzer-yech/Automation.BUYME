@@ -1,6 +1,4 @@
-import time
-
-from selenium.webdriver.support.relative_locator import locate_with
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from base_page import BasePage
 
@@ -11,6 +9,9 @@ class Constants():
     ENTER_BUTTON_VALUE = 'h1[class=bm-h1]'
     REGISTER_BUTTON_TYPE = By.TAG_NAME
     REGISTER_BUTTON_VALUE = 'span'
+    FIRST_NAME_TEXT_AREA_TYPE = By.XPATH
+    FIRST_NAME_TEXT_AREA_VALUE = "//input[@placeholder='שם פרטי']"
+
 class Registration(BasePage):
 
     def __init__(self, driver):
@@ -20,16 +21,18 @@ class Registration(BasePage):
         self.click_element(Constants.LOG_IN_BUTTON_TYPE, Constants.LOG_IN_BUTTON_VALUE)
         self.click_element_below(Constants.REGISTER_BUTTON_TYPE, Constants.REGISTER_BUTTON_VALUE,
                                  Constants.ENTER_BUTTON_TYPE, Constants.ENTER_BUTTON_VALUE)
-        self.send_text(By.XPATH, "//input[@placeholder='שם פרטי']", 'netzer')
+        self.send_text(By.XPATH, Constants.FIRST_NAME_TEXT_AREA_VALUE, 'netzer')
         self.send_text(By.XPATH, "//input[@placeholder='מייל']", 'netzer.yech@gmail.com')
         self.send_text(By.XPATH, "//input[@placeholder='סיסמה']", 'Bmrhjzetk91')
         self.send_text(By.XPATH, "//input[@placeholder='אימות סיסמה']", 'Bmrhjzetk91')
         self.click_element(By.XPATH, "//span[@class='circle']")
-        first_name = 'netzer'
-        assert first_name == self.find_and_return_web_elm(By.XPATH, "//input[@placeholder='שם פרטי']").text
+        # first_name = 'netzer'
+        # action = ActionChains(self.driver)
+        first_name_text_area = self.find_and_return_web_elm(
+            Constants.FIRST_NAME_TEXT_AREA_TYPE, Constants.FIRST_NAME_TEXT_AREA_VALUE)
+        # action.move_to_element(first_name_text_area).perform()
         self.click_element(By.XPATH, "//button[@type='submit']")
-
-
+        return first_name_text_area.text
 
 
 

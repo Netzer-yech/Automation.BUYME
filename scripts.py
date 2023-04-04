@@ -1,4 +1,6 @@
 import time
+from selenium.webdriver.support.select import Select
+
 from selenium.webdriver.support.relative_locator import locate_with
 from selenium.webdriver.chrome.service import Service
 from selenium import webdriver
@@ -27,12 +29,17 @@ def test_1():
     action.move_to_element(first_name_text_area).perform()
     first_name = 'netzer'
     print(first_name_text_area.text)
-    assert first_name == first_name_text_area.text
+    # assert first_name == first_name_text_area.text
     driver.find_element(By.XPATH, value="//button[@type='submit']").click()
 
 test_1()
 
+def test_2():
+    select = Select(driver.find_element(By.TAG_NAME, value='select'))
+    print(select.select_by_index(2).text)
 
+test_2()
+time.sleep(7)
 
 
 
