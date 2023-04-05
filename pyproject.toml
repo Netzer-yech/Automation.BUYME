@@ -10,6 +10,7 @@ packages = [{include = "automation"}]
 python = "^3.11"
 selenium = "^4.8.3"
 requests = "^2.28.2"
+allure-pytest = "^2.13.1"
 
 
 [build-system]

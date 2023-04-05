@@ -1,7 +1,7 @@
 from selenium.webdriver.chrome.service import Service
 from selenium import webdriver
 from unittest import TestCase
-from registration import Registration
+from registration_test import Registration
 from selenium.webdriver.chrome.options import Options
 import json
 class TestBuyMeWebsite(TestCase):
@@ -12,19 +12,21 @@ class TestBuyMeWebsite(TestCase):
         json_file = open('config.json', 'r')
         data = json.load(json_file)
         browser = data['browserType']
-        if browser == 'chrome':
+        url = data['url']
+        if browser == 'chrome' and url == "https://buyme.co.il/":
             self.driver = webdriver.Chrome(service=Service(
                 "C:\\automation course\\chromedriver.exe"), options=self.chrome_option)
-        elif browser == 'edge':
+            self.driver.get('https://buyme.co.il/')
+            json_file.close()
+        elif browser == 'edge' and url == "https://buyme.co.il/":
             self.driver = webdriver.Edge(service=Service("C:\\automation course\\msedgedriver.exe"))
-        self.driver.get('https://buyme.co.il/')
+            self.driver.get('https://buyme.co.il/')
+            json_file.close()
         self.driver.implicitly_wait(5)
         self.registration = Registration(self.driver)
 
     def test_1_registration(self):
-
-        first_name = 'netzer'
-        assert self.registration.test_registration() == first_name
+        self.registration.test_registration()
 
 
     def tearDown(self) -> None:

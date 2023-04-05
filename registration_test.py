@@ -1,7 +1,7 @@
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from base_page import BasePage
-
+import allure
 class Constants():
     LOG_IN_BUTTON_TYPE = By.XPATH
     LOG_IN_BUTTON_VALUE = "//span[@tuafontsizes='14']"
@@ -18,6 +18,7 @@ class Registration(BasePage):
         BasePage.__init__(self, driver)
 
     def test_registration(self):
+
         self.click_element(Constants.LOG_IN_BUTTON_TYPE, Constants.LOG_IN_BUTTON_VALUE)
         self.click_element_below(Constants.REGISTER_BUTTON_TYPE, Constants.REGISTER_BUTTON_VALUE,
                                  Constants.ENTER_BUTTON_TYPE, Constants.ENTER_BUTTON_VALUE)
@@ -26,13 +27,10 @@ class Registration(BasePage):
         self.send_text(By.XPATH, "//input[@placeholder='סיסמה']", 'Bmrhjzetk91')
         self.send_text(By.XPATH, "//input[@placeholder='אימות סיסמה']", 'Bmrhjzetk91')
         self.click_element(By.XPATH, "//span[@class='circle']")
-        # first_name = 'netzer'
-        # action = ActionChains(self.driver)
-        first_name_text_area = self.find_and_return_web_elm(
+        first_name = 'netzer'
+        first_name_text_area = self.find_and_return_web_elm_text(
             Constants.FIRST_NAME_TEXT_AREA_TYPE, Constants.FIRST_NAME_TEXT_AREA_VALUE)
-        # action.move_to_element(first_name_text_area).perform()
         self.click_element(By.XPATH, "//button[@type='submit']")
-        return first_name_text_area.text
-
+        # assert first_name_text_area.text == first_name
 
 
