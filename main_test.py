@@ -22,7 +22,7 @@ class TestBuyMeWebsite(TestCase):
             self.driver = webdriver.Edge(service=Service("C:\\automation course\\msedgedriver.exe"))
             self.driver.get('https://buyme.co.il/')
             json_file.close()
-        self.driver.implicitly_wait(5)
+        self.driver.implicitly_wait(10)
         self.registration = Registration(self.driver)
 
     def test_1_registration(self):
