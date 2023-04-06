@@ -12,6 +12,10 @@ class Constants():
     FIRST_NAME_TEXT_AREA_TYPE = By.XPATH
     FIRST_NAME_TEXT_AREA_VALUE = "//input[@placeholder='שם פרטי']"
 
+    RADIO_BUTTON_TYPE = By.XPATH
+    RADIO_BUTTON_VALUE = "//span[@class='circle']"
+    SUBMIT_TYPE = By.XPATH
+    SUBMIT_VALUE = "//button[@type='submit']"
 class Registration(BasePage):
 
     def __init__(self, driver):
@@ -22,15 +26,13 @@ class Registration(BasePage):
         self.click_element(Constants.LOG_IN_BUTTON_TYPE, Constants.LOG_IN_BUTTON_VALUE)
         self.click_element_below(Constants.REGISTER_BUTTON_TYPE, Constants.REGISTER_BUTTON_VALUE,
                                  Constants.ENTER_BUTTON_TYPE, Constants.ENTER_BUTTON_VALUE)
-        self.send_text(By.XPATH, Constants.FIRST_NAME_TEXT_AREA_VALUE, 'netzer')
+        self.send_text(Constants.FIRST_NAME_TEXT_AREA_TYPE, Constants.FIRST_NAME_TEXT_AREA_VALUE, 'netzer')
         self.send_text(By.XPATH, "//input[@placeholder='מייל']", 'netzer.yech@gmail.com')
         self.send_text(By.XPATH, "//input[@placeholder='סיסמה']", 'Bmrhjzetk91')
         self.send_text(By.XPATH, "//input[@placeholder='אימות סיסמה']", 'Bmrhjzetk91')
-        self.click_element(By.XPATH, "//span[@class='circle']")
+        self.click_element(Constants.RADIO_BUTTON_TYPE, Constants.RADIO_BUTTON_VALUE)
         first_name = 'netzer'
-        first_name_text_area = self.find_and_return_web_elm_text(
-            Constants.FIRST_NAME_TEXT_AREA_TYPE, Constants.FIRST_NAME_TEXT_AREA_VALUE)
-        self.click_element(By.XPATH, "//button[@type='submit']")
+        self.click_element(Constants.SUBMIT_TYPE, Constants.SUBMIT_VALUE)
         # assert first_name_text_area.text == first_name
 
 

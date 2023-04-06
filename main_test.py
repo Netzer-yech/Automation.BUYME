@@ -1,7 +1,7 @@
 from selenium.webdriver.chrome.service import Service
 from selenium import webdriver
 from unittest import TestCase
-from registration_test import Registration
+from registration_screen_test import Registration
 from selenium.webdriver.chrome.options import Options
 import json
 class TestBuyMeWebsite(TestCase):

@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 
 chrome_option = Options()
 chrome_option.add_argument("--start-maximized")
@@ -36,17 +36,15 @@ time_out = 10
 #     driver.find_element(By.XPATH, value="//button[@type='submit']").click()
 
 def test_2():
-    dropdown_1 = driver.find_element(By.XPATH, value="//select[@value='3']")
-    print(dropdown_1.get_attribute("value"))
+    driver.find_element(By.CSS_SELECTOR, value='span[title=סכום]').click()
 
+time.sleep(5)
 
-
-
-# test_1()
-test_2()
-time.sleep(3)
-
-
+# def test_3():
+#     website_url = 'https://buyme.co.il/'
+#     assert driver.current_url == website_url
+#     driver.find_element(By.CSS_SELECTOR, value='div[class=bottom]').click()
+#     time.sleep(5)
 
 
 
