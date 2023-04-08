@@ -13,6 +13,11 @@ class Constants():
     REGISTER_BUTTON_VALUE = 'span'
     FIRST_NAME_TEXT_AREA_VALUE = "//input[@placeholder='שם פרטי']"
     FIRST_NAME_LOCATOR = By.XPATH, "//input[@placeholder='שם פרטי']"
+    MAIL_LOCATOR_VALUE = "//input[@placeholder='מייל']"
+    MAIL_TEXT = 'netzer.yech@gmail.com'
+    PASS_LOCATOR_VALUE = "//input[@placeholder='סיסמה']"
+    VARIFAY_PASS_VALUE = "//input[@placeholder='אימות סיסמה']"
+    PASS_TEXT = 'Bmrhjzetk91'
     RADIO_BUTTON_VALUE = "//span[@class='circle']"
     SUBMIT_VALUE = "//button[@type='submit']"
 class Registration(BasePage):
@@ -32,9 +37,9 @@ class Registration(BasePage):
 
         # assert not working properly
 
-        self.send_text(By.XPATH, "//input[@placeholder='מייל']", 'netzer.yech@gmail.com')
-        self.send_text(By.XPATH, "//input[@placeholder='סיסמה']", 'Bmrhjzetk91')
-        self.send_text(By.XPATH, "//input[@placeholder='אימות סיסמה']", 'Bmrhjzetk91')
+        self.send_text(Constants.LOCATOR_XPATH, Constants.MAIL_LOCATOR_VALUE, Constants.MAIL_TEXT)
+        self.send_text(Constants.LOCATOR_XPATH, Constants.PASS_LOCATOR_VALUE, Constants.PASS_TEXT)
+        self.send_text(Constants.LOCATOR_XPATH, Constants.VARIFAY_PASS_VALUE, Constants.PASS_TEXT)
         self.click_element(Constants.LOCATOR_XPATH, Constants.RADIO_BUTTON_VALUE)
         self.click_element(Constants.LOCATOR_XPATH, Constants.SUBMIT_VALUE)
 
