@@ -31,18 +31,17 @@ wait = WebDriverWait(driver, time_out)
 #     first_name_text_area = driver.find_element(By.XPATH, value="//input[@placeholder='שם פרטי']")
 #     action.move_to_element(first_name_text_area).perform()
 #     first_name = 'netzer'
-#     print(first_name_text_area.text)
-#     # assert first_name == first_name_text_area.text
+#     assert first_name == first_name_text_area.text
 #     driver.find_element(By.XPATH, value="//button[@type='submit']").click()
-
-def test_2():
-    drop_down_1 = Select(driver.find_element(By.XPATH, value="//select[@data-parsley-id='10']"))
-    drop_down_1.select_by_index(3)
+# test_1()
+# def test_2():
+#     drop_down_1 = Select(driver.find_element(By.XPATH, value="//select[@data-parsley-id='10']"))
+#     drop_down_1.select_by_index(3)
     # driver.find_element(By.CSS_SELECTOR, value='div[class=input-label-wrapper]').click()
     # wait.until(ec.presence_of_element_located(driver.find_element(By.XPATH, value="//option[@value='3']").click()))
 
 
-time.sleep(10)
+# time.sleep(10)
 
 # def test_3():
 #     website_url = 'https://buyme.co.il/'

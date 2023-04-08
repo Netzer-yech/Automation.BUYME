@@ -20,7 +20,6 @@ class BasePage():
     def __init__(self, driver):
         self.driver = driver
 
-
     def click_element(self, locator_type, locator_value):
         try:
             self.driver.find_element(locator_type, value=locator_value).click()
@@ -35,9 +34,13 @@ class BasePage():
             logger.exception(str(exception))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
 
-    def find_and_return_web_elm(self, locator_type, locator_value):
+    def find_elm_and_submit(self, locator_type, locator_value):
+        self.find_web_elm(locator_type, locator_value).submit()
+
+    def find_web_elm(self, locator_type, locator_value):
         try:
-            return self.driver.find_element(locator_type, value=locator_value)
+            element = self.driver.find_element(locator_type, value=locator_value)
+            return element
         except NoSuchElementException as exception:
             logger.exception(str(exception))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
@@ -45,14 +48,15 @@ class BasePage():
 
     def find_and_return_web_elm_text(self, locator_type, locator_value):
         try:
-            return self.driver.find_element(locator_type, value=locator_value).text
+            element = self.driver.find_element(locator_type, value=locator_value)
+            return element.text
         except NoSuchElementException as exception:
             logger.exception(str(exception))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
 
     def find_elements(self, locator_type, locator_value):
         try:
-            self.driver.find_elements(locator_type, value=locator_value)
+            return self.driver.find_elements(locator_type, value=locator_value)
         except NoSuchElementException as exception:
             logger.exception(str(exception))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
@@ -60,10 +64,19 @@ class BasePage():
     def click_element_below(self, locator_type, locator_value, relative_type, relative_value):
         try:
             self.driver.find_element(locate_with(locator_type, locator_value).below(
-                self.find_and_return_web_elm(relative_type, relative_value))).click()
+                self.find_web_elm(relative_type, relative_value))).click()
         except NoSuchElementException as exception:
             logger.exception(str(exception))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
 
-    def wait_for_text_and_find_elm(self, time, locator, text):
+    def wait_for_text_in_elm(self, time, locator, text):
         wait(self.driver, time).until(ec.text_to_be_present_in_element(locator, text))
+
+    def get_current_url(self):
+        return self.driver.current_url
+
+    def wait_for_url(self, time, url):
+        wait(self.driver, 10).until(ec.url_to_be(url))
+
+    def go_to_url(self, url):
+        self.driver.get(url)

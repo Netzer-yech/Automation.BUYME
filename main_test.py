@@ -4,6 +4,8 @@ from unittest import TestCase
 from registration_screen_test import Registration
 from selenium.webdriver.chrome.options import Options
 import json
+from pick_business_test import PickBusiness
+
 class TestBuyMeWebsite(TestCase):
 
     def setUp(self) -> None:
@@ -24,10 +26,11 @@ class TestBuyMeWebsite(TestCase):
             json_file.close()
         self.driver.implicitly_wait(5)
         self.registration = Registration(self.driver)
+        self.pick_business = PickBusiness(self.driver)
 
     def test_1_registration(self):
         self.registration.test_registration()
-
+        self.pick_business.test_pick_business()
 
     def tearDown(self) -> None:
         self.driver.quit()
