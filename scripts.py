@@ -15,7 +15,7 @@ driver = webdriver.Chrome(service=Service("C:\\automation course\\chromedriver.e
 driver.get('https://buyme.co.il/')
 action = ActionChains(driver)
 time_out = 10
-
+wait = WebDriverWait(driver, time_out)
 
 
 
@@ -36,16 +36,19 @@ time_out = 10
 #     driver.find_element(By.XPATH, value="//button[@type='submit']").click()
 
 def test_2():
-    driver.find_element(By.CSS_SELECTOR, value='span[title=סכום]').click()
+    drop_down_1 = Select(driver.find_element(By.XPATH, value="//select[@data-parsley-id='10']"))
+    drop_down_1.select_by_index(3)
+    # driver.find_element(By.CSS_SELECTOR, value='div[class=input-label-wrapper]').click()
+    # wait.until(ec.presence_of_element_located(driver.find_element(By.XPATH, value="//option[@value='3']").click()))
 
-time.sleep(5)
+
+time.sleep(10)
 
 # def test_3():
 #     website_url = 'https://buyme.co.il/'
 #     assert driver.current_url == website_url
 #     driver.find_element(By.CSS_SELECTOR, value='div[class=bottom]').click()
 #     time.sleep(5)
-
 
 
 

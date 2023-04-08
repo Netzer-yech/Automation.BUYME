@@ -3,9 +3,9 @@ from selenium.common.exceptions import NoSuchElementException
 import logging
 import allure
 from allure_commons.types import AttachmentType
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support import expected_conditions as ec
-# time_out = 10
+
 
 
 logger = logging.getLogger()
@@ -65,3 +65,5 @@ class BasePage():
             logger.exception(str(exception))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
 
+    def wait_for_text_and_find_elm(self, time, locator, text):
+        wait(self.driver, time).until(ec.text_to_be_present_in_element(locator, text))
