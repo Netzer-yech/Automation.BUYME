@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 class Constants():
 
     LOCATOR = By.XPATH
-    CARD_VALUE = '//span[@class="name bm-subtitle-1"]'
+    CARD_LOCATOR = By.XPATH, '//span[@class="name bm-subtitle-1"]'
     TEXT_BOX_VALUE = '//input[@placeholder="הכנס סכום"]'
     TEXT_BOX_TEXT = '250'
     SUBMIT_VALUE = '//button[@type="submit"]'
@@ -23,7 +23,7 @@ class PickBusiness(BasePage):
         website_url = 'https://buyme.co.il/search?budget=3&category=16&region=11'
         self.wait_for_url(10, website_url)
         assert current_url == website_url
-        cards = self.find_elements(Constants.LOCATOR, Constants.CARD_VALUE)
+        cards = self.find_elements(Constants.CARD_LOCATOR)
         for card in cards:
             if card.text == "בית תאילנדי":
                 card.click()
