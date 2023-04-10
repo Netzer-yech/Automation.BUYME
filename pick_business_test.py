@@ -1,11 +1,9 @@
-import time
-
 from base_page import BasePage
 from selenium.webdriver.common.by import By
 class Constants():
 
     LOCATOR = By.XPATH
-    CARD_VALUE = '//span[@class="name bm-subtitle-"]'
+    CARD_VALUE = '//span[@class="name bm-subtitle-1"]'
     TEXT_BOX_VALUE = '//input[@placeholder="הכנס סכום"]'
     TEXT_BOX_TEXT = '250'
     SUBMIT_VALUE = '//button[@type="submit"]'
@@ -18,9 +16,6 @@ class PickBusiness(BasePage):
     def test_pick_business(self):
 
         self.go_to_url('https://buyme.co.il/search?budget=3&category=16&region=11')
-        # this line should be delete after finish to write the second page "home-screen"
-        # program needs to work with one flow
-
         current_url = self.get_current_url()
         website_url = 'https://buyme.co.il/search?budget=3&category=16&region=11'
         self.wait_for_url(10, website_url)

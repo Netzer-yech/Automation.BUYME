@@ -1,9 +1,7 @@
 import time
 
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from base_page import BasePage
-import allure
 class Constants():
     LOCATOR_XPATH = By.XPATH
     LOG_IN_BUTTON_VALUE = "//span[@tuafontsizes='14']"
@@ -12,7 +10,7 @@ class Constants():
     REGISTER_BUTTON_TYPE = By.TAG_NAME
     REGISTER_BUTTON_VALUE = 'span'
     FIRST_NAME_TEXT_AREA_VALUE = "//input[@placeholder='שם פרטי']"
-    FIRST_NAME_LOCATOR = By.XPATH, "//input[@placeholder='שם פרטי']"
+    FIRST_NAME_TEXT_AREA_TYPE = By.XPATH
     MAIL_LOCATOR_VALUE = "//input[@placeholder='מייל']"
     MAIL_TEXT = 'netzer.yech@gmail.com'
     PASS_LOCATOR_VALUE = "//input[@placeholder='סיסמה']"
@@ -31,12 +29,8 @@ class Registration(BasePage):
         self.click_element_below(Constants.REGISTER_BUTTON_TYPE, Constants.REGISTER_BUTTON_VALUE,
                                  Constants.ENTER_BUTTON_TYPE, Constants.ENTER_BUTTON_VALUE)
         self.send_text(Constants.LOCATOR_XPATH, Constants.FIRST_NAME_TEXT_AREA_VALUE, 'netzer')
-        # text_box = self.find_and_return_web_elm_text(Constants.FIRST_NAME_TEXT_AREA_TYPE,
-        #                                   Constants.FIRST_NAME_TEXT_AREA_VALUE)
-        # assert text_box == 'netzer'
-
-        # assert not working properly
-
+        text_box = self.find_web_elm(By.XPATH, Constants.FIRST_NAME_TEXT_AREA_VALUE).get_attribute('value')
+        assert text_box == 'netzer'
         self.send_text(Constants.LOCATOR_XPATH, Constants.MAIL_LOCATOR_VALUE, Constants.MAIL_TEXT)
         self.send_text(Constants.LOCATOR_XPATH, Constants.PASS_LOCATOR_VALUE, Constants.PASS_TEXT)
         self.send_text(Constants.LOCATOR_XPATH, Constants.VARIFAY_PASS_VALUE, Constants.PASS_TEXT)

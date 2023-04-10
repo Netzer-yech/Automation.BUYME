@@ -11,7 +11,7 @@ logger.setLevel(logging.ERROR)
 logging.basicConfig(
                     filename='buy_me.log',
                     format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
-                    datefmt='%D:%H:%M',
+                    datefmt='%H:%M:%S',
                     level=logging.ERROR,
                     force='True')
 

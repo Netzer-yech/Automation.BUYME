@@ -1,11 +1,8 @@
 from selenium.webdriver.common.by import By
 from base_page import BasePage
-from selenium.webdriver.support.select import Select
-
-
+import time
 class Constants():
-    DROP_DOWNS_LOCATOR = By.TAG_NAME, 'select'
-
+    LOCATOR = By.XPATH
 
 class HomeScreen(BasePage):
 
@@ -13,6 +10,17 @@ class HomeScreen(BasePage):
             BasePage.__init__(self, driver)
 
     def test_home_screen(self):
-        drop_downs = Select(self.find_elements(Constants.DROP_DOWNS_LOCATOR))
-        drop_down_1 = drop_downs[0]
-        wait.until(ec.presence_of_element_located(drop_downs.select_by_index(3)))
+        self.go_to_url('https://buyme.co.il/')
+        self.click_element(Constants.LOCATOR, "//span[@title='סכום']")
+        time.sleep(0.1)
+        self.click_element(Constants.LOCATOR, "//li[@value='3']")
+        time.sleep(0.1)
+        self.click_element(Constants.LOCATOR, "//span[@title='אזור']")
+        time.sleep(0.1)
+        self.click_element(Constants.LOCATOR, "//li[@value='11']")
+        time.sleep(0.1)
+        self.click_element(Constants.LOCATOR, "//span[@title='קטגוריה']")
+        time.sleep(0.1)
+        self.click_element(Constants.LOCATOR, "//li[@value='391']")
+        time.sleep(0.1)
+        self.click_element(Constants.LOCATOR, "//a[@rel='nofollow']")
