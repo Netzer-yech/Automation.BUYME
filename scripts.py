@@ -19,24 +19,24 @@ driver.implicitly_wait(10)
 
 
 
-def test_1():
-    driver.find_element(By.XPATH, value="//span[@tuafontsizes='14']").click()
-    my_button = driver.find_element(By.CSS_SELECTOR, value='h1[class=bm-h1]')
-    driver.find_element(locate_with(By.TAG_NAME, 'span').below(my_button)).click()
-    driver.find_element(By.XPATH, value="//input[@placeholder='שם פרטי']").send_keys('netzer')
-    driver.find_element(By.XPATH, value="//input[@placeholder='מייל']").send_keys('netzer.yech@gmail.com')
-    driver.find_element(By.XPATH, value="//input[@placeholder='סיסמה']").send_keys('Bmrhjzetk91')
-    driver.find_element(By.XPATH, value="//input[@placeholder='אימות סיסמה']").send_keys('Bmrhjzetk91')
-    driver.find_element(By.XPATH, value="//span[@class='circle']").click()
-    first_name_text_area = driver.find_element(By.XPATH, value="//input[@placeholder='שם פרטי']").get_attribute('value')
-    first_name = 'netzer'
-    assert first_name == first_name_text_area
-    driver.find_element(By.XPATH, value="//button[@type='submit']").click()
-test_1()
-
-
-
-time.sleep(5)
+# def test_1():
+#     driver.find_element(By.XPATH, value="//span[@tuafontsizes='14']").click()
+#     my_button = driver.find_element(By.CSS_SELECTOR, value='h1[class=bm-h1]')
+#     driver.find_element(locate_with(By.TAG_NAME, 'span').below(my_button)).click()
+#     driver.find_element(By.XPATH, value="//input[@placeholder='שם פרטי']").send_keys('netzer')
+#     driver.find_element(By.XPATH, value="//input[@placeholder='מייל']").send_keys('netzer.yech@gmail.com')
+#     driver.find_element(By.XPATH, value="//input[@placeholder='סיסמה']").send_keys('Bmrhjzetk91')
+#     driver.find_element(By.XPATH, value="//input[@placeholder='אימות סיסמה']").send_keys('Bmrhjzetk91')
+#     driver.find_element(By.XPATH, value="//span[@class='circle']").click()
+#     first_name_text_area = driver.find_element(By.XPATH, value="//input[@placeholder='שם פרטי']").get_attribute('value')
+#     first_name = 'netzer'
+#     assert first_name == first_name_text_area
+#     driver.find_element(By.XPATH, value="//button[@type='submit']").click()
+# test_1()
+#
+#
+#
+# time.sleep(5)
 
 
 

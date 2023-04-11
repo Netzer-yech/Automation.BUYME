@@ -18,7 +18,7 @@ class PickBusiness(BasePage):
         self.go_to_url('https://buyme.co.il/search?budget=3&category=16&region=11')
         current_url = self.get_current_url()
         website_url = 'https://buyme.co.il/search?budget=3&category=16&region=11'
-        self.wait_for_url(10, website_url)
+        self.wait_for_url(website_url)
         assert current_url == website_url
         cards = self.find_elements(Constants.LOCATOR, Constants.CARD_VALUE)
         for card in cards:

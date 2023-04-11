@@ -10,7 +10,7 @@ class HomeScreen(BasePage):
             BasePage.__init__(self, driver)
 
     def test_home_screen(self):
-        self.go_to_url('https://buyme.co.il/')
+        time.sleep(0.1)
         self.click_element(Constants.LOCATOR, "//span[@title='סכום']")
         time.sleep(0.1)
         self.click_element(Constants.LOCATOR, "//li[@value='3']")

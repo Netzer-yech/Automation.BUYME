@@ -15,7 +15,6 @@ logging.basicConfig(
                     level=logging.ERROR,
                     force='True')
 
-
 class BasePage():
     def __init__(self, driver):
         self.driver = driver
@@ -79,9 +78,9 @@ class BasePage():
             logger.error(str(exception))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
 
-    def wait_for_url(self, time, url):
+    def wait_for_url(self, url):
         try:
-            wait(self.driver, time).until(ec.url_to_be(url))
+            wait(self.driver, 10).until(ec.url_to_be(url))
         except Exception as exception:
             logger.error(str(exception))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
