@@ -1,5 +1,4 @@
 import time
-
 from selenium.webdriver.common.by import By
 from base_page import BasePage
 class Constants():
@@ -24,7 +23,6 @@ class Registration(BasePage):
         BasePage.__init__(self, driver)
 
     def test_registration(self):
-
         self.click_element(Constants.LOCATOR_XPATH, Constants.LOG_IN_BUTTON_VALUE)
         self.click_element_below(Constants.REGISTER_BUTTON_TYPE, Constants.REGISTER_BUTTON_VALUE,
                                  Constants.ENTER_BUTTON_TYPE, Constants.ENTER_BUTTON_VALUE)

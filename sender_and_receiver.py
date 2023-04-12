@@ -1,4 +1,6 @@
 import time
+from selenium.webdriver.support.relative_locator import locate_with
+
 
 from base_page import BasePage
 from selenium.webdriver.common.by import By
@@ -16,7 +18,7 @@ chrome_option = Options()
 chrome_option.add_argument("--start-maximized")
 driver = webdriver.Chrome(service=Service("C:\\automation course\\chromedriver.exe"), options=chrome_option)
 action = ActionChains(driver)
-driver.implicitly_wait(10)
+driver.implicitly_wait(7)
 wait = WebDriverWait(driver, 10)
 
 driver.get('https://buyme.co.il/money/370060?price=250')
@@ -28,12 +30,17 @@ driver.find_element(By.XPATH, value='//li[@value="59"]').click()
 driver.find_element(By.XPATH, value='//textarea[@rows="4"]').clear()
 driver.find_element(By.XPATH, value='//textarea[@rows="4"]').send_keys("באהבה רבה!!!")
 driver.find_element(By.XPATH, value='//input[@type="file"]').send_keys("C:\\automation course\\picture.png")
+time.sleep(1)
 driver.find_element(By.XPATH, value='//button[@gtm="המשך"]').submit()
-wait.until(ec.element_to_be_clickable(driver.find_element(By.XPATH, value='//path[@class="border"]').click()))
+driver.find_element(By.XPATH, value='//div[@gtm="עכשיו"]').click()
+# under_buttons = driver.find_elements(By.XPATH, value='//div[@class="label buttom-sm"]')
+# print(len(under_buttons))
+# for sms in under_buttons:
+#     if sms.get_attribute('value') == 'SMS':
+#         driver.find_element(locate_with(By.XPATH, '//svg[@gtm="method-sms"]').above(sms)).click()
+#         break
+time.sleep(2)
 
-
-
-time.sleep(5)
 
 
 

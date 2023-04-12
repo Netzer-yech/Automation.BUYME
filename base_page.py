@@ -91,3 +91,7 @@ class BasePage():
         except Exception as exception:
             logger.error(str(exception))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
+
+    def scroll_down_and_take_screenshot(self):
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
