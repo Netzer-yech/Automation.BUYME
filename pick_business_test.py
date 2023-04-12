@@ -20,7 +20,7 @@ class PickBusiness(BasePage):
         for card in cards:
             if card.text == "בית תאילנדי":
                 time.sleep(1)
-                self.wait_and_click(card)
+                card.click()
                 break
         self.send_text(Constants.LOCATOR, Constants.TEXT_BOX_VALUE, Constants.TEXT_BOX_TEXT)
         self.find_elm_and_submit(Constants.LOCATOR, Constants.SUBMIT_VALUE)
