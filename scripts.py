@@ -48,12 +48,13 @@ wait = WebDriverWait(driver, 10)
 #     driver.find_element(By.CSS_SELECTOR, value='div[class=bottom]').click()
 #     time.sleep(5)
 
-# driver.find_element(By.XPATH, value="//span[@tuafontsizes='14']").click()
-# time.sleep(2)
-# driver.find_element(By.XPATH, value="//button[@type='submit']").click()
-# alert_text = 'כל המתנות מחכות לך! אבל קודם צריך מייל וסיסמה'
-# alerts = driver.find_element(By.XPATH, value="//li[@class='parsley-required']").text
-# assert alerts == alert_text
+driver.find_element(By.XPATH, value="//span[@tuafontsizes='14']").click()
+time.sleep(2)
+driver.find_element(By.XPATH, value="//button[@type='submit']").click()
+alert_text = 'כל המתנות מחכות לך! אבל קודם צריך מייל וסיסמה'
+alerts = driver.find_element(By.XPATH, value="//li[@class='parsley-required']").text
+print(alerts)
+assert alerts == alert_text
 #
 # driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 # time.sleep(2)

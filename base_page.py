@@ -6,6 +6,7 @@ import allure
 from allure_commons.types import AttachmentType
 from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support import expected_conditions as ec
+
 logger = logging.getLogger()
 logger.setLevel(logging.ERROR)
 logging.basicConfig(
@@ -26,6 +27,20 @@ class BasePage():
             logger.error(str(exception))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
 
+    def wait_and_click(self, locator):
+        try:
+            wait(self.driver, 10).until(ec.presence_of_element_located(locator))
+        except Exception as exception:
+            logger.error(str(exception))
+            allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
+
+    def wait_and_return_text(self, locator):
+        try:
+            element = wait(self.driver, 10).until(ec.presence_of_element_located(locator))
+            return element.text
+        except Exception as exception:
+            logger.error(str(exception))
+            allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
     def send_text(self, locator_type, locator_value, text):
         try:
             self.driver.find_element(locator_type, value=locator_value).send_keys(text)

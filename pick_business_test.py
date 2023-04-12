@@ -1,3 +1,5 @@
+import time
+
 from base_page import BasePage
 from selenium.webdriver.common.by import By
 class Constants():
@@ -23,7 +25,8 @@ class PickBusiness(BasePage):
         cards = self.find_elements(Constants.LOCATOR, Constants.CARD_VALUE)
         for card in cards:
             if card.text == "בית תאילנדי":
-                card.click()
+                time.sleep(1)
+                self.wait_and_click(card)
                 break
 
         self.send_text(Constants.LOCATOR, Constants.TEXT_BOX_VALUE, Constants.TEXT_BOX_TEXT)
