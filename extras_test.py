@@ -19,7 +19,7 @@ class Extras(BasePage):
         self.click_element(Constants.LOCATOR_XPATH, Constants.SUBMIT_VALUE)
         time.sleep(0.1)
         alert_text = 'כל המתנות מחכות לך! אבל קודם צריך מייל וסיסמה'
-        alert = self.find_elements(Constants.LOCATOR_XPATH, Constants.ALERT_VALUE)
+        alert = self.find_and_return_web_elm_text(Constants.LOCATOR_XPATH, Constants.ALERT_VALUE)
         time.sleep(0.1)
         assert alert == alert_text
 
