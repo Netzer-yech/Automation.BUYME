@@ -1,4 +1,3 @@
-import time
 from selenium.webdriver.common.by import By
 from base_page import BasePage
 class Constants():
@@ -18,10 +17,8 @@ class Constants():
     RADIO_BUTTON_VALUE = "//span[@class='circle']"
     SUBMIT_VALUE = "//button[@type='submit']"
 class Registration(BasePage):
-
     def __init__(self, driver):
         BasePage.__init__(self, driver)
-
     def test_registration(self):
         self.click_element(Constants.LOCATOR_XPATH, Constants.LOG_IN_BUTTON_VALUE)
         self.click_element_below(Constants.REGISTER_BUTTON_TYPE, Constants.REGISTER_BUTTON_VALUE,

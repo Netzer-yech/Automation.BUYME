@@ -1,6 +1,4 @@
 from selenium.webdriver.support.relative_locator import locate_with
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.support.select import Select
 import logging
 import allure
 from allure_commons.types import AttachmentType
@@ -27,6 +25,12 @@ class BasePage():
             logger.error(str(exception))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
 
+    def find_textbox_and_clear(self, locator_type, locator_value):
+        try:
+            self.driver.find_element(locator_type, value=locator_value).clear()
+        except Exception as exception:
+            logger.error(str(exception))
+            allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
     def wait_and_click(self, locator):
         try:
             wait(self.driver, 10).until(ec.presence_of_element_located(locator))
@@ -110,3 +114,6 @@ class BasePage():
     def scroll_down_and_take_screenshot(self):
         self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
+
+    def go_to_last_page(self):
+        self.driver.back()
