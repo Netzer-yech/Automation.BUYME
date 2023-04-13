@@ -34,15 +34,15 @@ class TestBuyMeWebsite(TestCase):                  # using TestCase to organize 
         self.extras = Extras(self.driver)           # define the objects of the different test using POM
     def test_1_registration(self):
         self.registration.test_registration()
-    # def test_2_home_screen(self):
-    #     self.home_screen.test_home_screen()
-    # def test_3_pick_business(self):                  # each function calling the test from his module
-    #     self.pick_business.test_pick_business()
-    # def test_4_sender_receiver(self):
-    #     self.sender_receiver.test_sender_receiver()
-    # def test_5_extras(self):
-    #     self.extras.test_home_screen_error()
-    #     self.extras.test_screenshot_buttom_of_page()
+    def test_2_home_screen(self):
+        self.home_screen.test_home_screen()
+    def test_3_pick_business(self):                  # each function calling the test from his module
+        self.pick_business.test_pick_business()
+    def test_4_sender_receiver(self):
+        self.sender_receiver.test_sender_receiver()
+    def test_5_extras(self):
+        self.extras.test_home_screen_error()
+        self.extras.test_screenshot_buttom_of_page()
     def tearDown(self) -> None:
         self.driver.quit()                           # tearDown for ending the main test
 

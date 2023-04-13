@@ -7,7 +7,7 @@ class Constants():                    # constant variable using for easy mainten
     ENTER_BUTTON_VALUE = 'h1[class=bm-h1]'
     REGISTER_BUTTON_TYPE = By.TAG_NAME
     REGISTER_BUTTON_VALUE = 'span'
-    FIRST_NAME_TEXT_AREA_VALUE = "//input[@placeholder='שם פרט']"
+    FIRST_NAME_TEXT_AREA_VALUE = "//input[@placeholder='שם פרטי']"
     FIRST_NAME_TEXT_AREA_TYPE = By.XPATH
     MAIL_LOCATOR_VALUE = "//input[@placeholder='מייל']"
     MAIL_TEXT = 'netzer.yech@gmail.com'
