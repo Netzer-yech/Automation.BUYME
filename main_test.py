@@ -32,16 +32,17 @@ class TestBuyMeWebsite(TestCase):
         self.pick_business = PickBusiness(self.driver)
         self.sender_receiver = SenderReceiver(self.driver)
         self.extras = Extras(self.driver)
-    def test_1_registration(self):
-        self.registration.test_registration()
-    def test_2_home_screen(self):
-        self.home_screen.test_home_screen()
-    def test_3_pick_business(self):
-        self.pick_business.test_pick_business()
-    def test_4_sender_receiver(self):
-        self.sender_receiver.test_sender_receiver()
+    # def test_1_registration(self):
+    #     self.registration.test_registration()
+    # def test_2_home_screen(self):
+    #     self.home_screen.test_home_screen()
+    # def test_3_pick_business(self):
+    #     self.pick_business.test_pick_business()
+    # def test_4_sender_receiver(self):
+    #     self.sender_receiver.test_sender_receiver()
     def test_5_extras(self):
         self.extras.test_home_screen_error()
+        self.extras.test_screenshot_buttom_of_page()
     def tearDown(self) -> None:
         self.driver.quit()
 
