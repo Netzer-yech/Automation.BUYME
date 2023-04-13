@@ -24,7 +24,6 @@ class BasePage():
             self.driver.find_element(locator_type, value=locator_value).click()
         except Exception as exception:
             logger.error(str(exception))                    # catch the exceptions, append to logger
-            logger.error(str(locator_type, locator_value))   # document locators type and value that failed
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
                                                             # take screenshot of exception and put in allure report
 
@@ -33,7 +32,6 @@ class BasePage():
             self.driver.find_element(locator_type, value=locator_value).clear()
         except Exception as exception:
             logger.error(str(exception))
-            logger.error(str(locator_type, locator_value))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
 
     def wait_and_click(self, locator):                   # wait and click function billed-in find element function
@@ -41,7 +39,6 @@ class BasePage():
             wait(self.driver, 10).until(ec.presence_of_element_located(locator))
         except Exception as exception:
             logger.error(str(exception))
-            logger.error(str(locator))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
 
     def wait_and_return_text(self, locator):              # wait and return text of an element function
@@ -50,14 +47,12 @@ class BasePage():
             return element.text
         except Exception as exception:
             logger.error(str(exception))
-            logger.error(str(locator))   # document locators type and value that failed
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
     def send_text(self, locator_type, locator_value, text):  # send text function billed-in find element function
         try:
             self.driver.find_element(locator_type, value=locator_value).send_keys(text)
         except Exception as exception:
             logger.error(str(exception))
-            logger.error(str(locator_type, locator_value))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
 
     def find_elm_and_submit(self, locator_type, locator_value):  # find element and submit
@@ -65,7 +60,6 @@ class BasePage():
             self.find_web_elm(locator_type, locator_value).submit()
         except Exception as exception:
             logger.error(str(exception))
-            logger.error(str(locator_type, locator_value))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
     def find_web_elm(self, locator_type, locator_value):         # find element
         try:
@@ -73,7 +67,6 @@ class BasePage():
             return element
         except Exception as exception:
             logger.error(str(exception))
-            logger.error(str(locator_type, locator_value))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
 
 
@@ -83,7 +76,6 @@ class BasePage():
             return element.text
         except Exception as exception:
             logger.error(str(exception))
-            logger.error(str(locator_type, locator_value))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
 
     def find_elements(self, locator_type, locator_value):        # find elements as a list
@@ -91,7 +83,6 @@ class BasePage():
             return self.driver.find_elements(locator_type, value=locator_value)
         except Exception as exception:
             logger.error(str(exception))
-            logger.error(str(locator_type, locator_value))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
 
     def click_element_below(self, locator_type, locator_value, relative_type, relative_value):
@@ -100,8 +91,6 @@ class BasePage():
                 self.find_web_elm(relative_type, relative_value))).click()
         except Exception as exception:
             logger.error(str(exception))
-            logger.error(str(locator_type, locator_value))
-            logger.error(str(relative_type, relative_value))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
     #     find an element using relative locator
     def get_current_url(self):              # getting the current url
@@ -116,7 +105,6 @@ class BasePage():
             wait(self.driver, 10).until(ec.url_to_be(url))
         except Exception as exception:
             logger.error(str(exception))
-            logger.error(str(url))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
 
     def go_to_url(self, url):              # go to specific url
@@ -124,7 +112,6 @@ class BasePage():
             self.driver.get(url)
         except Exception as exception:
             logger.error(str(exception))
-            logger.error(str(url))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
 
     def scroll_down_and_take_screenshot(self):      # scroll down in the website using java-script executor
