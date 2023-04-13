@@ -25,13 +25,13 @@ class TestBuyMeWebsite(TestCase):                  # using TestCase to organize 
         elif browser == 'edge' and url == "https://buyme.co.il/":
             self.driver = webdriver.Edge(service=Service("C:\\automation course\\msedgedriver.exe"))
             self.driver.get('https://buyme.co.il/')
-            json_file.close()  # using if statement for reading the json content and define the driver and url for the program
-        self.driver.implicitly_wait(5)                # waiting generally for element to appear, for safety
+            json_file.close()                       # reading the json content and define the driver and url for the program
+        self.driver.implicitly_wait(5)              # waiting generally for element to appear, for safety
         self.registration = Registration(self.driver)
         self.home_screen = HomeScreen(self.driver)
         self.pick_business = PickBusiness(self.driver)
         self.sender_receiver = SenderReceiver(self.driver)
-        self.extras = Extras(self.driver)            # define the objects of the different test using POM
+        self.extras = Extras(self.driver)           # define the objects of the different test using POM
     def test_1_registration(self):
         self.registration.test_registration()
     def test_2_home_screen(self):

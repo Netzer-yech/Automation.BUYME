@@ -14,7 +14,7 @@ logging.basicConfig(
                     level=logging.ERROR,
                     force='True')
 # configuration of the logger and the log file
-
+# force=True was highly necessary for the logger to work
 class BasePage():
     def __init__(self, driver):
         self.driver = driver     # construct the driver
@@ -41,27 +41,27 @@ class BasePage():
             logger.error(str(exception))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
 
-    def wait_and_return_text(self, locator):                   # wait and return text of an element function
+    def wait_and_return_text(self, locator):              # wait and return text of an element function
         try:
             element = wait(self.driver, 10).until(ec.presence_of_element_located(locator))
             return element.text
         except Exception as exception:
             logger.error(str(exception))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
-    def send_text(self, locator_type, locator_value, text):     # send text function billed-in find element function
+    def send_text(self, locator_type, locator_value, text):  # send text function billed-in find element function
         try:
             self.driver.find_element(locator_type, value=locator_value).send_keys(text)
         except Exception as exception:
             logger.error(str(exception))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
 
-    def find_elm_and_submit(self, locator_type, locator_value):     # find element and submit
+    def find_elm_and_submit(self, locator_type, locator_value):  # find element and submit
         try:
             self.find_web_elm(locator_type, locator_value).submit()
         except Exception as exception:
             logger.error(str(exception))
             allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
-    def find_web_elm(self, locator_type, locator_value):            # find element
+    def find_web_elm(self, locator_type, locator_value):         # find element
         try:
             element = self.driver.find_element(locator_type, value=locator_value)
             return element

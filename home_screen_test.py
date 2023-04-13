@@ -1,13 +1,15 @@
 from selenium.webdriver.common.by import By
 from base_page import BasePage
 import time
-class Constants():
+class Constants():                     # constant variable using for easy maintenance of locator and values of elements
     LOCATOR = By.XPATH
 
-class HomeScreen(BasePage):
+class HomeScreen(BasePage):             # using inheritance to use all functionality from the BasePage class
 
-    def __init__(self, driver):
+    def __init__(self, driver):                  # construct the driver again at child-class for future inheritance
             BasePage.__init__(self, driver)
+        # calling parent constructor to initialize the attributes of the parent class with child class
+
 
     def test_home_screen(self):
         time.sleep(0.1)
@@ -24,3 +26,5 @@ class HomeScreen(BasePage):
         self.click_element(Constants.LOCATOR, "//li[@value='391']")
         time.sleep(0.1)
         self.click_element(Constants.LOCATOR, "//a[@rel='nofollow']")
+
+        # time-sleep is the only waiting technic that works in this part of the test (select from dropdowns)
