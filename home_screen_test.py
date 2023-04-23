@@ -12,19 +12,12 @@ class HomeScreen(BasePage):             # using inheritance to use all functiona
 
 
     def test_home_screen(self):
-        time.sleep(0.1)
         self.click_element(Constants.LOCATOR, "//span[@title='סכום']")
-        time.sleep(0.1)
         self.click_element(Constants.LOCATOR, "//li[@value='3']")
-        time.sleep(0.1)
         self.click_element(Constants.LOCATOR, "//span[@title='אזור']")
-        time.sleep(0.1)
         self.click_element(Constants.LOCATOR, "//li[@value='11']")
-        time.sleep(0.1)
         self.click_element(Constants.LOCATOR, "//span[@title='קטגוריה']")
-        time.sleep(0.1)
         self.click_element(Constants.LOCATOR, "//li[@value='391']")
-        time.sleep(0.1)
         self.click_element(Constants.LOCATOR, "//a[@rel='nofollow']")
 
         # time-sleep is the only waiting technic that works in this part of the test (select from dropdowns)

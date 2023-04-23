@@ -21,7 +21,6 @@ class PickBusiness(BasePage):                   # using inheritance to use all f
         cards = self.find_elements(Constants.LOCATOR, Constants.CARD_VALUE)
         for card in cards:                # using for loop to iterate between element with the same attributes
             if card.text == "בית תאילנדי":
-                time.sleep(1)            # using time.sleep is the only waiting technic that helps to click this element
                 card.click()
                 break
         self.send_text(Constants.LOCATOR, Constants.TEXT_BOX_VALUE, Constants.TEXT_BOX_TEXT)
