@@ -1,0 +1,26 @@
+[31m[1mERROR   [0m root:base_page.py:26 Message: no such element: Unable to locate element: {"method":"xpath","selector":"//li[@value='391']"}
+  (Session info: chrome=112.0.5615.50)
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00815E23+53059]
+	(No symbol) [0x007A4AF1]
+	(No symbol) [0x0069B388]
+	(No symbol) [0x006CCA3F]
+	(No symbol) [0x006CCC4B]
+	(No symbol) [0x00702772]
+	(No symbol) [0x006EA814]
+	(No symbol) [0x0070066F]
+	(No symbol) [0x006EA5C6]
+	(No symbol) [0x006C0A2C]
+	(No symbol) [0x006C20ED]
+	GetHandleVerifier [0x00A7D3CE+2573550]
+	GetHandleVerifier [0x00AB3340+2794592]
+	GetHandleVerifier [0x00AACF1C+2768956]
+	GetHandleVerifier [0x008AFA60+682880]
+	(No symbol) [0x007AEE22]
+	(No symbol) [0x007AA8B8]
+	(No symbol) [0x007AA99B]
+	(No symbol) [0x0079DB57]
+	BaseThreadInitThunk [0x763A6739+25]
+	RtlGetFullPathName_UEx [0x77DB8AFF+1215]
+	RtlGetFullPathName_UEx [0x77DB8ACD+1165]

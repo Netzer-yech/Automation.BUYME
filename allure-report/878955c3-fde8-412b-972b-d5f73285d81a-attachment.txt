@@ -1,0 +1,127 @@
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\netze\PycharmProjects\Automation.BUYME\base_page.py", line 57, in send_text
+    self.driver.find_element(locator_type, value=locator_value).send_keys(text)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 831, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 440, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 245, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@placeholder='שם פרט']"}
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x003F37D3]
+	(No symbol) [0x00388B81]
+	(No symbol) [0x0028B36D]
+	(No symbol) [0x002BD382]
+	(No symbol) [0x002BD4BB]
+	(No symbol) [0x002F3302]
+	(No symbol) [0x002DB464]
+	(No symbol) [0x002F1215]
+	(No symbol) [0x002DB216]
+	(No symbol) [0x002B0D97]
+	(No symbol) [0x002B253D]
+	GetHandleVerifier [0x0066ABF2+2510930]
+	GetHandleVerifier [0x00698EC1+2700065]
+	GetHandleVerifier [0x0069C86C+2714828]
+	GetHandleVerifier [0x004A3480+645344]
+	(No symbol) [0x00390FD2]
+	(No symbol) [0x00396C68]
+	(No symbol) [0x00396D4B]
+	(No symbol) [0x003A0D6B]
+	BaseThreadInitThunk [0x76ED7D69+25]
+	RtlInitializeExceptionChain [0x7749B74B+107]
+	RtlClearBits [0x7749B6CF+191]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\netze\AppData\Local\Programs\Python\Python311\Lib\logging\__init__.py", line 1110, in emit
+    msg = self.format(record)
+          ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\netze\AppData\Local\Programs\Python\Python311\Lib\logging\__init__.py", line 953, in format
+    return fmt.format(record)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\netze\AppData\Local\Programs\Python\Python311\Lib\logging\__init__.py", line 687, in format
+    record.message = record.getMessage()
+                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\netze\AppData\Local\Programs\Python\Python311\Lib\logging\__init__.py", line 377, in getMessage
+    msg = msg % self.args
+          ~~~~^~~~~~~~~~~
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Scripts\pytest.exe\__main__.py", line 7, in <module>
+    sys.exit(console_main())
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\_pytest\config\__init__.py", line 190, in console_main
+    code = main()
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\_pytest\config\__init__.py", line 167, in main
+    ret: Union[ExitCode, int] = config.hook.pytest_cmdline_main(
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\pluggy\_hooks.py", line 265, in __call__
+    return self._hookexec(self.name, self.get_hookimpls(), kwargs, firstresult)
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\pluggy\_manager.py", line 80, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\pluggy\_callers.py", line 39, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\_pytest\main.py", line 317, in pytest_cmdline_main
+    return wrap_session(config, _main)
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\_pytest\main.py", line 270, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\_pytest\main.py", line 324, in _main
+    config.hook.pytest_runtestloop(session=session)
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\pluggy\_hooks.py", line 265, in __call__
+    return self._hookexec(self.name, self.get_hookimpls(), kwargs, firstresult)
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\pluggy\_manager.py", line 80, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\pluggy\_callers.py", line 39, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\_pytest\main.py", line 349, in pytest_runtestloop
+    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\pluggy\_hooks.py", line 265, in __call__
+    return self._hookexec(self.name, self.get_hookimpls(), kwargs, firstresult)
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\pluggy\_manager.py", line 80, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\pluggy\_callers.py", line 39, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\_pytest\runner.py", line 112, in pytest_runtest_protocol
+    runtestprotocol(item, nextitem=nextitem)
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\_pytest\runner.py", line 131, in runtestprotocol
+    reports.append(call_and_report(item, "call", log))
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\_pytest\runner.py", line 220, in call_and_report
+    call = call_runtest_hook(item, when, **kwds)
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\_pytest\runner.py", line 259, in call_runtest_hook
+    return CallInfo.from_call(
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\_pytest\runner.py", line 339, in from_call
+    result: Optional[TResult] = func()
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\_pytest\runner.py", line 260, in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\pluggy\_hooks.py", line 265, in __call__
+    return self._hookexec(self.name, self.get_hookimpls(), kwargs, firstresult)
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\pluggy\_manager.py", line 80, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\pluggy\_callers.py", line 39, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\_pytest\runner.py", line 167, in pytest_runtest_call
+    item.runtest()
+  File "C:\Users\netze\AppData\Local\pypoetry\Cache\virtualenvs\automation-buyme-6D6ztCaw-py3.11\Lib\site-packages\_pytest\unittest.py", line 330, in runtest
+    self._testcase(result=self)  # type: ignore[arg-type]
+  File "C:\Users\netze\AppData\Local\Programs\Python\Python311\Lib\unittest\case.py", line 678, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\netze\AppData\Local\Programs\Python\Python311\Lib\unittest\case.py", line 623, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\netze\AppData\Local\Programs\Python\Python311\Lib\unittest\case.py", line 579, in _callTestMethod
+    if method() is not None:
+  File "C:\Users\netze\PycharmProjects\Automation.BUYME\main_test.py", line 36, in test_1_registration
+    self.registration.test_registration()
+  File "C:\Users\netze\PycharmProjects\Automation.BUYME\registration_screen_test.py", line 27, in test_registration
+    self.send_text(Constants.LOCATOR_XPATH, Constants.FIRST_NAME_TEXT_AREA_VALUE, 'netzer')
+  File "C:\Users\netze\PycharmProjects\Automation.BUYME\base_page.py", line 60, in send_text
+    logger.error(locator_type, locator_value)
+Message: 'xpath'
+Arguments: ("//input[@placeholder='שם פרט']",)
