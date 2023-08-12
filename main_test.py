@@ -13,7 +13,7 @@ class TestBuyMeWebsite(TestCase):                  # using TestCase to organize 
     def setUp(self) -> None:                       #  Set up any necessary resources or configurations for the test
         self.chrome_option = Options()
         self.chrome_option.add_argument("--start-maximized")  # using Options class for "start maximized" the browser
-        json_file = open('config.json', 'r')       # open the json file
+        json_file = open('../Automation.BUYME/config.json', 'r')       # open the json file
         data = json.load(json_file)                # loading the json content to the variable "data"
         browser = data['browserType']
         url = data['url']
