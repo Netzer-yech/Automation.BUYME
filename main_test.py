@@ -19,11 +19,12 @@ class TestBuyMeWebsite(TestCase):                  # using TestCase to organize 
         url = data['url']
         if browser == 'chrome' and url == "https://buyme.co.il/":
             self.driver = webdriver.Chrome(service=Service(
-                "C:\\automation course\\chromedriver.exe"), options=self.chrome_option)
+                "C:\\automation course\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe"), options=self.chrome_option)
             self.driver.get('https://buyme.co.il/')
             json_file.close()
         elif browser == 'edge' and url == "https://buyme.co.il/":
-            self.driver = webdriver.Edge(service=Service("C:\\automation course\\msedgedriver.exe"))
+            self.driver = webdriver.Edge(service=Service(
+                "C:\\automation course\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe"))
             self.driver.get('https://buyme.co.il/')
             json_file.close()                       # reading the json content and define the driver and url for the program
         self.driver.implicitly_wait(5)              # waiting generally for element to appear, for safety

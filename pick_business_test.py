@@ -1,7 +1,7 @@
 import time
 from base_page import BasePage
 from selenium.webdriver.common.by import By
-class Constants():             # constant variable using for easy maintenance of locator and values of elements
+class Constants:             # constant variable using for easy maintenance of locator and values of elements
     LOCATOR = By.XPATH
     CARD_VALUE = '//span[@class="name bm-subtitle-1"]'
     TEXT_BOX_VALUE = '//input[@placeholder="הכנס סכום"]'
